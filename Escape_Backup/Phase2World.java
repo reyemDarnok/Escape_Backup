@@ -12,6 +12,8 @@ public class Phase2World extends World
     private Phase1World p1W;
     private Phase3World p3W;
     private MapWorld mW;
+    private int angle;
+    private String[] controls = {"w","a","s","d","space","left","right","down","w","a","s","d"};
     /**
      * Constructor for objects of class Phase2.
      * 
@@ -28,5 +30,11 @@ public class Phase2World extends World
         this.p1W = p1W;
         this.p3W = p3W;
         this.mW = mW;
+    }
+    public void setGlobals(String[] controls,int angle)
+    {
+        for(int i = 0; i<12;i++)
+        this.controls[i] = controls[i];
+        this.angle = angle;
     }
 }

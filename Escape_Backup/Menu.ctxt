@@ -14,4 +14,6 @@ comment5.params=text\ x\ y
 comment5.target=void\ text(java.lang.String,\ int,\ int)
 comment6.params=
 comment6.target=void\ deleteAllText()
-numComments=7
+comment7.params=controls\ angle
+comment7.target=void\ setGlobals(java.lang.String[],\ int)
+numComments=8
