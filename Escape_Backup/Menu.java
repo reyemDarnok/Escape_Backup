@@ -60,6 +60,13 @@ public class Menu extends World
                 {
                     controls[lIndex] = Greenfoot.ask("Auf welche Taste möchtest du " + controlMap[lIndex] + " setzen.");
                     showMenu();
+                } else if(mouse.getButton()==1)
+                {
+                    menu=false;
+                    deleteAllText();
+                    text("ESCAPE_BACKUP",getWidth()/2,getHeight()/4);
+                    text("Start",getWidth()/2,getHeight()/2);
+                    text("Menu",getWidth()/2,getHeight()*3/4);
                 }
             }
         }
