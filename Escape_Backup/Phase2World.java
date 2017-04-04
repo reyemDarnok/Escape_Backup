@@ -14,6 +14,7 @@ public class Phase2World extends World
     private MapWorld mW;
     private int angle;
     private String[] controls = {"w","a","s","d","space","left","right","down","w","a","s","d"};
+    private Turret turret = new Turret();
     /**
      * Constructor for objects of class Phase2.
      * 
@@ -22,6 +23,13 @@ public class Phase2World extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
+        addObject(turret,300,0);
+        turret.rotate("middle");
+    }
+    
+    public String[] getControls()
+    {
+        return controls;
     }
 
     public void setWorlds(Menu menu,Phase1World p1W, Phase3World p3W, MapWorld mW)

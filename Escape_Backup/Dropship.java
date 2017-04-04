@@ -1,16 +1,15 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 
 /**
- * Write a description of class Phase2Actor here.
+ * Write a description of class Dropship here.
  * 
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Phase2Actor extends Actor
+public class Dropship extends Phase2Actor
 {
-    
     /**
-     * Act - do whatever the Phase2Actor wants to do. This method is called whenever
+     * Act - do whatever the Dropship wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     public void act() 
