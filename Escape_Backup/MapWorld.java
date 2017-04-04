@@ -24,6 +24,13 @@ public class MapWorld extends World
         super(600, 400, 1); 
     }
 
+    /**
+      Sets the parameters of this World. Should be run in the beginning to avoid nullPointerErrors.
+      @param menu The Menu World of the scenario
+      @param p2W The Phase2World of the scenario
+      @param p3W The Phase3World of the scenario
+      @param p1W The Phase1World of the scenario
+    **/
     public void setWorlds(Menu menu,Phase2World p2W, Phase3World p3W, Phase1World p1W)
     {
         this.menu = menu;
@@ -31,6 +38,11 @@ public class MapWorld extends World
         this.p3W = p3W;
         this.p1W = p1W;
     }
+    /**
+        Sets the globals in this World. Should be run whenever the globals are changed.
+        @param controls How the controls are currently set
+        @param which angle the turret has
+    **/
     public void setGlobals(String[] controls,int angle)
     {
         for(int i = 0; i<12;i++)
