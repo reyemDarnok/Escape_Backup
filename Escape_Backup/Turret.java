@@ -12,6 +12,7 @@ public class Turret extends Phase2Actor
     public void addedToWorld(World p2W)   
     {
         world=getWorldOfType(Phase2World.class);
+        setRotation(270);
     }
 
     /**
@@ -22,34 +23,33 @@ public class Turret extends Phase2Actor
     {
         if(Greenfoot.isKeyDown(world.getControls()[5]))
         {
-            rotate("left");
+            move("left");
         } else if(Greenfoot.isKeyDown(world.getControls()[6]))
         {
-            rotate("right");
+            move("right");
         } else if(Greenfoot.isKeyDown(world.getControls()[7]))
         {
-            rotate("middle"); 
+            move("middle"); 
         } 
     }
+    
+   
+    
     //y=1/720*(x-300)^2+275  
     //y=1/720*(x^2-600x+90000)+275
     //y=x^2/720-5*x/6+400
-    public void rotate(String direction)
+    public void move(String direction)
     {
-        if(direction=="right" || direction=="middle" && getX()<300)
+        if(direction=="left" || direction=="middle" && getX()>getWorld().getWidth()/2)
         {
-            setLocation(getX()+1,(int)((double)(Math.pow(getX(),2)/720-5*getX()/6+400)));
-            setRotation((int)(Math.atan((getX()/360-5/6))*180/Math.PI));
-            System.out.println(Integer.toString((int)(Math.atan((getX()/360-5/6))*180/Math.PI)+90));
-        } else if(direction=="left" || direction=="middle" && getX()>=300)
+            setLocation(getX()-1,getY());
+        } else
+        if(direction=="right" || direction=="middle")
         {
-            setLocation(getX()-1,(int)((double)(Math.pow(getX(),2)/720-5*getX()/6+400)));
-            setRotation((int)((Math.atan((getX()/360-5/6))*180/Math.PI)));
-        } else  
+            setLocation(getX()+1,getY());
+        } else
         {
-            System.out.println("Illegal argument for Method rotate(String direction) in Turret.class.");
-            System.out.println("Legal arguments: 'left','right','middle'");
-            System.out.println("Given Argument: " + direction);
+            Main.error("Turret: public void rotate was given an invalid Argument.");
         }
     }
 }

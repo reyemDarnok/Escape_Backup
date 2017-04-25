@@ -15,6 +15,7 @@ public class Phase2World extends World
     private int angle;
     private String[] controls = {"w","a","s","d","space","left","right","down","w","a","s","d"};
     private Turret turret = new Turret();
+    private int energy = -200;
     /**
      * Constructor for objects of class Phase2.
      * 
@@ -23,8 +24,19 @@ public class Phase2World extends World
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.
         super(600, 400, 1); 
-        addObject(turret,300,0);
-        turret.rotate("middle");
+        addObject(turret,300,575);
+    }
+    
+    public void regenerate(int energy)
+    {
+        this.energy+=energy;
+        if(this.energy>0)
+            startPhase3(energy);
+    }
+    
+    public void startPhase3(int surplusEnergy)
+    {
+        
     }
     
     public String[] getControls()
