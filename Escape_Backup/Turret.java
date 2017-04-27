@@ -9,6 +9,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class Turret extends Phase2Actor
 {
     private Phase2World world;
+    private int cooldown = 0;
     public void addedToWorld(World p2W)   
     {
         world=getWorldOfType(Phase2World.class);
@@ -31,6 +32,15 @@ public class Turret extends Phase2Actor
         {
             move("middle"); 
         } 
+        if(Greenfoot.isKeyDown(world.getControls()[4])&&cooldown==0)
+        {
+            world.addObject(new Bullet(getRotation()),getX(),getY());
+            cooldown=25;
+        }
+        if(cooldown>0)
+        {
+            cooldown--;
+        }
     }
     
    
@@ -42,11 +52,11 @@ public class Turret extends Phase2Actor
     {
         if(direction=="left" || direction=="middle" && getX()>getWorld().getWidth()/2)
         {
-            setLocation(getX()-1,getY());
+            setLocation(getX()-5,getY());
         } else
         if(direction=="right" || direction=="middle")
         {
-            setLocation(getX()+1,getY());
+            setLocation(getX()+5,getY());
         } else
         {
             Main.error("Turret: public void rotate was given an invalid Argument.");

@@ -19,6 +19,8 @@ public class Dropship extends Phase2Actor
        setRotation(90);
        move(1);
        Greenfoot.delay(1);
+       if(getY()==world.getHeight()-10)
+            world.startPhase1();
     }  
     public void addedToWorld(World world)
     {

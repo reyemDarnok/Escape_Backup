@@ -16,6 +16,7 @@ public class Phase2World extends World
     private String[] controls = {"w","a","s","d","space","left","right","down","w","a","s","d"};
     private Turret turret = new Turret();
     private int energy = -200;
+    private int dropshipCooldown = 100;
     /**
      * Constructor for objects of class Phase2.
      * 
@@ -27,6 +28,29 @@ public class Phase2World extends World
         addObject(turret,300,575);
     }
     
+    public void act()
+    {
+        spawnDropship();
+        if(dropshipCooldown>0)
+        {
+            dropshipCooldown--;
+        }
+    }
+    
+    public void spawnDropship()
+    {
+        if(dropshipCooldown==0)
+        {
+            addObject(new Dropship(),Greenfoot.getRandomNumber(getWidth()),0);
+            dropshipCooldown=100;
+        }
+    }
+    
+    public void startPhase1()
+    {
+        Greenfoot.setWorld(p1W);
+    }
+    
     public void regenerate(int energy)
     {
         this.energy+=energy;
@@ -36,7 +60,7 @@ public class Phase2World extends World
     
     public void startPhase3(int surplusEnergy)
     {
-        
+        Greenfoot.setWorld(p3W);
     }
     
     public String[] getControls()

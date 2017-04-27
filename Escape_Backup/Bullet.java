@@ -8,6 +8,15 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  */
 public class Bullet extends Phase2Actor
 {
+    private int rot;
+    public Bullet(int rotation)
+    {
+       rot=rotation; 
+    }
+    public void addedToWorld(World world)
+    {
+        setRotation(rot);
+    }
     /**
      * Act - do whatever the Bullet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -20,6 +29,7 @@ public class Bullet extends Phase2Actor
         {
             Phase2World world = (Phase2World) getWorld();
             enemy.damage(100);
+            world.removeObject(this);
         }
         // Add your action code here.
     }    
