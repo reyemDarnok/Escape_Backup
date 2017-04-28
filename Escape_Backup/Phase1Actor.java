@@ -6,7 +6,7 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class Phase1Actor extends Actor
+public abstract class Phase1Actor extends Actor
 {
     /**
      * Act - do whatever the Phase1Actor wants to do. This method is called whenever

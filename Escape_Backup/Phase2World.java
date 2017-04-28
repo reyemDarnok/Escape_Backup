@@ -21,6 +21,10 @@ public class Phase2World extends World
      * Constructor for objects of class Phase2.
      * 
      */
+    public void setEnergy(int i)
+    {
+        energy=i;
+    }
     public Phase2World()
     {    
         // Create a new world with 600x400 cells with a cell size of 1x1 pixels.

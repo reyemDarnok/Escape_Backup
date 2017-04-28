@@ -42,7 +42,7 @@ public class Menu extends World
     public void act()
     {
         MouseInfo mouse = Greenfoot.getMouseInfo();
-        if(!(mouse==null))
+        if(mouse!=null)
         {
             if(!menu)
             {
