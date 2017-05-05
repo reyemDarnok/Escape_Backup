@@ -12,6 +12,7 @@ public abstract class Phase3Actor extends Actor
     protected int damage = 50;
     protected Phase3World world;
     protected boolean friendly;
+    protected int rot;
     public void addedToWorld(World world)
     {
         this.world=(Phase3World) world;
@@ -29,7 +30,7 @@ public abstract class Phase3Actor extends Actor
     }
     public void shoot(boolean friendly)
     {
-        world.addObject(new p3Bullet(getRotation(),damage,friendly),getX(),getY());
+        world.addObject(new p3Bullet(rot,damage,friendly),getX(),getY());
     }
     
     /**
